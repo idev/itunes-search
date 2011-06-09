@@ -32,4 +32,20 @@ class TestItunesSearch < Test::Unit::TestCase
       end
     end
   end
+
+  context "Lookup working" do
+    setup do
+      @base = Base.new()
+    end
+
+    context "Lookup Band with artist ID" do
+      setup do
+        @result = @base.lookup("id" => "909253")
+      end
+      should "have result Jack Johnson" do
+        assert @result.results.first.artistName == "Jack Johnson"
+      end
+    end
+  end
+
 end

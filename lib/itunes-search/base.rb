@@ -1,11 +1,16 @@
 module ItunesSearch 
 
   ENDPOINT = "http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStoreServices.woa/wa/wsSearch"
+  ENDPOINT_LOOKUP = "http://itunes.apple.com/lookup"
   
   class Base
    
     def search(*args)
       return ItunesSearch::Search.new(*args)  
-    end  
+    end
+
+    def lookup(*args)
+      return ItunesSearch::Lookup.new(*args)
+    end
   end
 end
